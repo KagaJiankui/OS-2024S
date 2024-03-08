@@ -34,7 +34,8 @@
 				"string": "cpp",
 				"string_view": "cpp",
 				"console.h": "c",
-				"defs.h": "c"
+				"defs.h": "c",
+				"clock.h": "c"
 			},
 	}
 }

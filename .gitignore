@@ -3,6 +3,7 @@
 */obj/
 */test_results/
 */container/qemu/
+*/.cache/
 
 .envrc
 
