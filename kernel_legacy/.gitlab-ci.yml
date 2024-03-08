@@ -1,0 +1,40 @@
+default:
+  image:
+    name: "glcr.cra.ac.cn/operating-systems/project/kernel_legacy/ucore-tools:v0.0.10"
+    docker:
+      user: "1000"
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - make
+
+format-check-job:
+  stage: test
+  script:
+    - make format_check
+  allow_failure: true
+
+test-job:
+  stage: test
+  script:
+    - make check AVOCADO_RUN_EXTRA_PARAMS="--job-timeout 3m"
+  artifacts:
+    when: always
+    paths:
+      - test_results
+
+deploy-job:
+  stage: deploy
+  script:
+    - >
+      curl --fail --request POST
+      --form token="$TRIGGER_TOKEN"
+      --form ref=mini_kern
+      "https://mirrors.sustech.edu.cn/git/api/v4/projects/$EVALUATION_PATH/trigger/pipeline"
+  environment: production

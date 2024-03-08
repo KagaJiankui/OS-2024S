@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "riscv64",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/kernel_legacy/kern/*",
+                "${workspaceFolder}/kernel_legacy/libs/*"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "compilerPath": "/opt/riscv64-unknown-elf/bin/clang",
+            "intelliSenseMode": "linux-clang-arm64"
+        }
+    ],
+    "version": 4
+}

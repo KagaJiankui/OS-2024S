@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+			"clangd.arguments": [
+				"--all-scopes-completion",
+				"--background-index",
+				"--background-index-priority=low",
+				"--completion-parse=auto",
+				"--completion-style=detailed",
+				"--enable-config",
+				"--header-insertion-decorators",
+				"--header-insertion=iwyu",
+				"--pch-storage=memory",
+				"--query-driver=riscv*-gcc,riscv*-g++,riscv*-clang,riscv*-clang++",
+				"--ranking-model=decision_forest",
+				"-j=24",
+				"--log=error"
+			],
+	}
+}
