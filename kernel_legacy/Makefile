@@ -11,7 +11,6 @@ ifndef QEMU
 QEMU := qemu-system-riscv64
 endif
 
-
 # eliminate default suffix rules
 .SUFFIXES: .c .S .h
 
