@@ -1,8 +1,8 @@
 # Build directories
-/bin/
-/obj/
-/test_results/
-/container/qemu/
+*/bin/
+*/obj/
+*/test_results/
+*/container/qemu/
 
 .envrc
 

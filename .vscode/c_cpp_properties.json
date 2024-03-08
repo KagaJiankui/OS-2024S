@@ -5,6 +5,12 @@
             "includePath": [
                 "${default}",
                 "${workspaceFolder}/kernel_legacy/kern/*",
+                "${workspaceFolder}/kernel_legacy/kern/**",
+                "${workspaceFolder}/kernel_legacy/kern/debug/*",
+                "${workspaceFolder}/kernel_legacy/kern/driver/*",
+                "${workspaceFolder}/kernel_legacy/kern/libs/*",
+                "${workspaceFolder}/kernel_legacy/kern/mm/*",
+                "${workspaceFolder}/kernel_legacy/kern/trap/*",
                 "${workspaceFolder}/kernel_legacy/libs/*"
             ],
             "defines": [],
