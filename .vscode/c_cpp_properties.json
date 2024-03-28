@@ -17,7 +17,7 @@
             "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "/opt/riscv64-unknown-elf/bin/clang",
-            "intelliSenseMode": "linux-clang-arm64",
+            "intelliSenseMode": "linux-clang-riscv64",
             "compileCommands": "${workspaceFolder}/kernel_legacy/compile_commands.json"
         }
     ],
