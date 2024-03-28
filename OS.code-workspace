@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "reports/assign2"
 		}
 	],
 	"settings": {
@@ -38,5 +41,113 @@
 			"clock.h": "c",
 			"riscv.h": "c"
 		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Typst - 编译当前文件",
+				"type": "shell",
+				"command": "typst",
+				"args": [
+					"compile",
+					"--diagnostic-format=short",
+					"${fileBasename}",
+					"${fileBasenameNoExtension}.pdf"
+				],
+				"group": "build",
+				"presentation": {
+					"reveal": "always"
+				},
+				"options": {
+					"cwd": "${fileDirname}"
+				},
+				"problemMatcher": {
+					"owner": "typst",
+					"fileLocation": "absolute",
+					"pattern": [
+						{
+							"regexp": "^(?:\\\\\\\\\\?\\\\)(\\w:.*\\.typ):(\\d+):(\\d+):\\s+(\\w+):\\s+(.*)$",
+							"file": 1,
+							"line": 2,
+							"endColumn": 3,
+							"severity": 4,
+							"message": 5
+						}
+					]
+				}
+			},
+			{
+				"label": "Typst - 实时增量编译当前文件",
+				"type": "shell",
+				"command": "typst",
+				"isBackground": true,
+				"args": [
+					"watch",
+					"--diagnostic-format=short",
+					"${fileBasename}",
+					"${fileBasenameNoExtension}.pdf"
+				],
+				"group": {
+					"kind": "test",
+					"isDefault": true
+				},
+				"presentation": {
+					"reveal": "silent"
+				},
+				"options": {
+					"cwd": "${fileDirname}"
+				},
+				"problemMatcher": {
+					"owner": "typst",
+					"fileLocation": "absolute",
+					"pattern": [
+						{
+							"regexp": "^(?:\\\\\\\\\\?\\\\)(\\w:.*\\.typ):(\\d+):(\\d+):\\s+(\\w+):\\s+(.*)$",
+							"file": 1,
+							"line": 2,
+							"endColumn": 3,
+							"severity": 4,
+							"message": 5
+						}
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "^writing\\sto.*\\.pdf$",
+						"endsPattern": "^\\[\\d+:\\d+:\\d+\\].*$"
+					}
+				}
+			},
+			{
+				"label": "Pandoc - 编译当前markdown为PDF - Tectonic",
+				"type": "shell",
+				"command": "pandoc",
+				"isBackground": true,
+				"group": "build",
+				"args": [
+					"--listings",
+					"--pdf-engine=tectonic",
+					"--template=mppl.tex",
+					"${fileBasenameNoExtension}.md",
+					"-o",
+					"${fileBasenameNoExtension}.pdf"
+				],
+				"options": {
+					"cwd": "${fileDirname}"
+				}
+			},
+			{
+				"label": "Typstfmt",
+				"type": "shell",
+				"command": "typstfmt",
+				"args": [
+					"${fileBasenameNoExtension}.typ"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}/${relativeFileDirname}"
+				},
+				"problemMatcher": []
+			}
+		]
 	}
 }
