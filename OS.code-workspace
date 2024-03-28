@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "Assignment1"
 		}
 	],
 	"settings": {
@@ -40,10 +37,6 @@
 			"defs.h": "c",
 			"clock.h": "c",
 			"riscv.h": "c"
-		},
-		{
-			"glspc.languageId": "makefile",
-			"glspc.serverCommand": "/usr/local/bin/make-language-server",
 		}
 	}
 }
